@@ -1,0 +1,45 @@
+Building docker image:
+> docker build -t node-app-image .
+-t: tagging image name
+
+
+Remove docker image:
+> docker image rm node-app-image
+
+
+List docker image:
+> docker image ls
+
+
+Run docker image/create container (with bind mount and port mapping)
+> docker run -v %cd%:/app:ro -v /app/node_modules --env PORT=8000 -p 3000:8000 -d --name node-app node-app-image
+> docker run -v %cd%:/app:ro -v /app/node_modules --env-file ./.env -p 3000:8000 -d --name node-app node-app-image
+
+-v: bind mount, ro: read only
+-v /app/node_modules: protecting bind mount for node_modules folder
+-p: port mapping
+--env: setting up environment variable
+--env-file: setting up environment variable from .env file
+%cd%: current working directory in local machine
+/app: working directory in docker container
+-d: detached mode
+--name: name the container
+
+
+List docker containers:
+> docker ps
+
+
+Remove docker container:
+> docker rm node-app -fv
+
+-f: force Remove
+-v: remove stale volumes
+
+Execute command in the container
+> docker exec -it node-app bash
+
+
+Docker Compose
+> docker-compose up -d --build
+> docker-compose down -v
