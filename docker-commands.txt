@@ -43,3 +43,8 @@ Execute command in the container
 Docker Compose
 > docker-compose up -d --build
 > docker-compose down -v
+-v: deletes extra volumes
+
+Seperate docker compose for dev and prod
+> docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+-f: file
