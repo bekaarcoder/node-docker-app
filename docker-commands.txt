@@ -48,3 +48,13 @@ Docker Compose
 Seperate docker compose for dev and prod
 > docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
 -f: file
+
+Manage volumes
+> docker volume ls
+> docker volume prune
+Commands:
+  create      Create a volume
+  inspect     Display detailed information on one or more volumes
+  ls          List volumes
+  prune       Remove all unused local volumes
+  rm          Remove one or more volumes
