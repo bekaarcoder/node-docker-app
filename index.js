@@ -6,6 +6,7 @@ const {
     MONGO_IP,
     MONGO_PORT,
 } = require("./config/config");
+const postRouter = require("./routes/postRoutes");
 
 const app = express();
 
@@ -23,9 +24,13 @@ mongoose
         console.log(e);
     });
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
     res.send("<h2>Hello World from Docker Container!</h2>");
 });
+
+app.use("/api/v1/posts", postRouter);
 
 const port = process.env.PORT || 3000;
 
