@@ -9,6 +9,7 @@ exports.signUp = async (req, res, next) => {
             username: username,
             password: hashPassword,
         });
+        req.session.user = user;
         res.status(201).json({
             status: "success",
             data: {
@@ -26,6 +27,7 @@ exports.login = async (req, res) => {
     const { username, password } = req.body;
     try {
         const user = await User.findOne({ username });
+
         if (!user) {
             return res.status(400).json({
                 status: "fail",
@@ -41,6 +43,8 @@ exports.login = async (req, res) => {
                 message: "Invalid credentials.",
             });
         }
+
+        req.session.user = user;
 
         res.status(200).json({
             status: "success",
