@@ -70,3 +70,7 @@ Commands:
   ls          List networks
   prune       Remove all unused networks
   rm          Remove one or more networks
+
+
+Scale number of containers for a service
+> docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --scale node-app=2
