@@ -74,3 +74,10 @@ Commands:
 
 Scale number of containers for a service
 > docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --scale node-app=2
+
+
+DigitalOcean Login to droplet
+> ssh root@104.131.44.156
+
+Setting up environment variable in Ubuntu
+> export ENV_VARIABLE="xxxxxxx"
