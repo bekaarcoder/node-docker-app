@@ -58,7 +58,7 @@ app.use(
 app.use(express.json());
 
 app.get("/api/v1", (req, res) => {
-    res.send("<h2>Hello World from Docker Container!</h2>");
+    res.send("<h2>Hello World from Docker Hub!</h2>");
     console.log("Testing API");
 });
 
